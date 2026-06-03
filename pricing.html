@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uplers — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFDE2F;
+    --yellow-2:#FFE67B;
+    --yellow-3:#FFF3C2;
+    --yellow-4:#FFFAE3;
+    --yellow-5:#FFFCEA;
+    --black:#231F20;
+    --offwhite:#F8F6EE;
+    --gray:#F7F7F7;
+    --white:#FFFFFF;
+    --line:#E8E4D6;
+    --muted:#6B6862;
+    --radius:16px;
+    --radius-sm:10px;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;
+    background:var(--offwhite);
+    color:var(--black);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:84px 0}
+  h1,h2,h3{line-height:1.12;letter-spacing:-0.02em;font-weight:800}
+  p{color:#34302E}
+  a{text-decoration:none;color:inherit}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;
+    border:none;border-radius:12px;padding:15px 26px;transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--yellow);color:var(--black);box-shadow:0 6px 18px rgba(255,222,47,.45)}
+  .btn-primary:hover{box-shadow:0 10px 24px rgba(255,222,47,.55)}
+  .btn-secondary{background:var(--black);color:var(--white)}
+  .btn-ghost{background:transparent;color:var(--black);border:1.5px solid var(--black)}
+  .btn-sm{padding:11px 20px;font-size:14px;border-radius:10px}
+
+  /* ---------- pill / eyebrow ---------- */
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow-3);color:var(--black);
+    font-weight:500;font-size:14px;letter-spacing:0;
+    padding:8px 16px;border-radius:999px;border:1px solid var(--yellow-2);
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--black)}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(248,246,238,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{height:30px;width:auto;display:block}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links > a,.nav-top{font-size:15px;font-weight:500;color:#3a3633;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .nav-links > a:hover,.has-mega:hover .nav-top{color:var(--black)}
+  .nav-top svg{width:12px;height:12px;transition:transform .2s}
+  .has-mega:hover .nav-top svg{transform:rotate(180deg)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .has-mega{position:relative}
+  .mega{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(8px);
+    background:var(--white);border:1px solid var(--line);border-radius:18px;
+    box-shadow:0 30px 70px rgba(35,31,32,.14);padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:28px;
+    width:680px;opacity:0;visibility:hidden;transition:.2s;z-index:60}
+  .has-mega:hover .mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .mega::before{content:"";position:absolute;top:-18px;left:0;right:0;height:18px}
+  .mega-h{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+  .mega-sub{font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.4}
+  .mega-col > a{display:block;padding:10px 12px;border-radius:11px;margin:0 -4px;transition:.15s}
+  .mega-col > a:hover{background:var(--yellow-5)}
+  .mega-col > a b{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:var(--black);margin-bottom:2px}
+  .mega-col > a span{display:block;font-size:13px;color:#6a665f;font-weight:400;line-height:1.4}
+  .mega-col > a em{font-style:normal;background:var(--yellow);font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  @media(max-width:980px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 70px;text-align:center;background:
+    radial-gradient(1200px 460px at 50% -120px, rgba(255,222,47,.45), rgba(248,246,238,0) 70%);}
+  .hero .pill{margin-bottom:26px}
+  .hero h1{font-size:58px;max-width:880px;margin:0 auto 22px}
+  .hero h1 .hl{position:relative;white-space:nowrap}
+  .hero h1 .hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:6px;height:14px;background:var(--yellow);z-index:-1;border-radius:3px}
+  .hero p.sub{font-size:20px;color:#46423F;max-width:640px;margin:0 auto 38px}
+  .hero-cta{display:flex;gap:16px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+  .cta-stack{display:flex;flex-direction:column;align-items:center;gap:7px}
+  .cta-stack .cap{font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.03em;display:inline-flex;align-items:center;gap:6px}
+  .cta-stack .cap .glow{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 3px rgba(255,222,47,.35)}
+  .hero-meta{margin-top:46px;display:flex;gap:30px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-size:14px;font-weight:500}
+  .hero-meta b{color:var(--black);font-weight:700}
+  @media(max-width:680px){.hero h1{font-size:38px}.hero p.sub{font-size:17px}}
+
+  /* ---------- client strip ---------- */
+  .clients{padding:38px 0;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .clients .label{text-align:center;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  .client-row{display:flex;gap:46px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .client-row span{font-size:23px;font-weight:800;letter-spacing:-.02em;color:#9a958c;opacity:.85;transition:color .2s}
+  .client-row span:hover{color:var(--black)}
+
+  /* ---------- generic section heading ---------- */
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 52px}
+  .sec-head .pill{margin-bottom:18px}
+  .sec-head h2{font-size:40px;margin-bottom:16px}
+  .sec-head p{font-size:18px;color:#54504C}
+
+  /* ---------- Jay intro ---------- */
+  .jai{background:var(--white)}
+  .jai-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .jai-copy h2{font-size:40px;margin:16px 0}
+  .jai-copy p.lead{font-size:18px;color:#54504C;margin-bottom:26px}
+  .jai-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:30px}
+  .jai-list li{display:flex;gap:12px;align-items:flex-start;font-size:16px;font-weight:500}
+  .jai-list .tick{flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+  .chat-card{background:var(--offwhite);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 24px 60px rgba(35,31,32,.08)}
+  .chat-head{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .chat-avatar{width:46px;height:46px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+  .chat-head .who{font-weight:700;font-size:16px}
+  .chat-head .role{font-size:13px;color:var(--muted)}
+  .chat-head .status{margin-left:auto;font-size:12px;font-weight:600;color:#1a8a4a;display:flex;align-items:center;gap:6px}
+  .chat-head .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#1fb35e}
+  .bubble{padding:13px 16px;border-radius:14px;font-size:14.5px;margin-bottom:12px;max-width:88%}
+  .bubble.in{background:var(--white);border:1px solid var(--line)}
+  .bubble.out{background:var(--black);color:var(--white);margin-left:auto;border-bottom-right-radius:4px}
+  .bubble.in{border-bottom-left-radius:4px}
+  .chat-input{display:flex;gap:10px;margin-top:18px}
+  .chat-input .fake{flex:1;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--muted);font-size:14px}
+  @media(max-width:840px){.jai-grid{grid-template-columns:1fr;gap:34px}.jai-copy h2{font-size:32px}}
+
+  /* ---------- readiness report ---------- */
+  .report-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .feat{display:flex;flex-direction:column;gap:22px}
+  .feat-item{display:flex;gap:16px;align-items:flex-start}
+  .feat-ico{flex:0 0 46px;width:46px;height:46px;border-radius:12px;background:var(--yellow-4);border:1px solid var(--yellow-2);display:flex;align-items:center;justify-content:center}
+  .feat-ico svg{width:22px;height:22px;stroke:var(--black);stroke-width:1.7;fill:none}
+  .feat-item h4{font-size:17px;font-weight:700;margin-bottom:4px}
+  .feat-item p{font-size:14.5px;color:#5a564f}
+  .report-card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 24px 60px rgba(35,31,32,.08)}
+  .report-card .rc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .report-card .rc-head .name{font-weight:800;font-size:19px}
+  .report-card .badge{background:var(--yellow);font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+  .report-card .rc-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .score{margin-bottom:16px}
+  .score .top{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:7px}
+  .score .top .val{color:var(--muted)}
+  .bar{height:9px;border-radius:6px;background:var(--gray);overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--yellow);border-radius:6px}
+  .rc-foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600}
+  .rc-foot .ok{width:22px;height:22px;border-radius:50%;background:#e7f7ee;color:#1a8a4a;display:flex;align-items:center;justify-content:center;font-size:12px}
+  @media(max-width:840px){.report-grid{grid-template-columns:1fr;gap:34px}}
+
+  /* ---------- success stories ---------- */
+  .stories{background:var(--white)}
+  .story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .story{background:var(--offwhite);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column}
+  .story .tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:14px}
+  .story h4{font-size:19px;font-weight:700;margin-bottom:10px;line-height:1.25}
+  .story p{font-size:14.5px;color:#5a564f;margin-bottom:22px;flex:1}
+  .story .stats{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:18px}
+  .story .stat{flex:1}
+  .story .stat b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .story .stat span{font-size:12px;color:var(--muted);font-weight:500}
+  @media(max-width:840px){.story-grid{grid-template-columns:1fr}}
+
+  /* ---------- talent profiles ---------- */
+  .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+  .tab{font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;transition:.15s}
+  .tab.active{background:var(--black);color:var(--white);border-color:var(--black)}
+  .talent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .talent{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px;transition:.18s}
+  .talent:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(35,31,32,.10)}
+  .talent .t-top{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+  .t-avatar{width:52px;height:52px;border-radius:14px;background:var(--yellow-3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px}
+  .talent .t-name{font-weight:700;font-size:17px}
+  .talent .t-role{font-size:13px;color:var(--muted)}
+  .verified{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#1a8a4a;background:#e7f7ee;padding:3px 9px;border-radius:999px;margin-top:5px}
+  .skills{display:flex;flex-direction:column;gap:11px;margin-bottom:18px}
+  .skill{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600}
+  .skill .lvl{display:flex;gap:4px}
+  .skill .lvl i{width:24px;height:6px;border-radius:3px;background:var(--gray)}
+  .skill .lvl i.on{background:var(--yellow)}
+  .talent .t-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px;font-size:13px}
+  .talent .rate{font-weight:800;font-size:16px}
+  .talent .avail{color:#1a8a4a;font-weight:600}
+  @media(max-width:840px){.talent-grid{grid-template-columns:1fr}}
+
+  /* ---------- comparison + form ---------- */
+  .compare{background:linear-gradient(180deg,var(--yellow-5),var(--offwhite))}
+  .cmp-table{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(35,31,32,.07);margin-bottom:64px}
+  .cmp-row{display:grid;grid-template-columns:1.6fr 1fr 1fr}
+  .cmp-row > div{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;font-size:15px}
+  .cmp-row:last-child > div{border-bottom:none}
+  .cmp-head > div{font-weight:800;font-size:15px;background:var(--offwhite)}
+  .cmp-head .col-up{background:var(--yellow);font-weight:800}
+  .cmp-row .col-up{background:var(--yellow-5);font-weight:600}
+  .cmp-row .feature{font-weight:600}
+  .cmp-row .col-other{color:#7a766f}
+  .ic{flex:0 0 18px;width:18px;height:18px;display:inline-flex}
+  .ic.yes{color:#1a8a4a}.ic.no{color:#c0392b}
+  @media(max-width:680px){.cmp-row{grid-template-columns:1.4fr .8fr .8fr}.cmp-row>div{padding:13px 12px;font-size:13px}}
+
+  .form-card{max-width:720px;margin:0 auto;background:var(--black);color:var(--white);border-radius:24px;padding:48px;text-align:center}
+  .form-card h2{font-size:34px;color:var(--white);margin-bottom:12px}
+  .form-card p{color:#cfccc6;font-size:17px;margin-bottom:30px}
+  .lead-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+  .lead-form .full{grid-column:1/-1}
+  .lead-form label{display:block;font-size:13px;font-weight:600;color:#bdb9b2;margin-bottom:6px}
+  .lead-form input,.lead-form select{width:100%;padding:13px 14px;border-radius:11px;border:1px solid #3a3633;background:#2c2826;color:var(--white);font-family:inherit;font-size:15px}
+  .lead-form input::placeholder{color:#7d7972}
+  .lead-form input:focus,.lead-form select:focus{outline:none;border-color:var(--yellow)}
+  .lead-form .btn{width:100%;margin-top:6px}
+  @media(max-width:600px){.lead-form{grid-template-columns:1fr}.form-card{padding:32px 22px}}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--black);color:#cfccc6;padding:56px 0 34px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:36px}
+  footer .logo{height:30px}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-col h5{color:var(--white);font-size:14px;margin-bottom:14px;font-weight:700}
+  .foot-col a{display:block;font-size:14px;color:#a8a49d;margin-bottom:9px}
+  .foot-col a:hover{color:var(--white)}
+  .foot-bottom{border-top:1px solid #3a3633;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#8d8980}
+
+  /* ---------- nav active ---------- */
+  .nav-links > a.active{color:var(--black);font-weight:700}
+  /* ---------- pricing hero (sparse) ---------- */
+  .hero-pricing{padding:120px 0 108px}
+  .hero-pricing h1{font-size:54px;max-width:840px}
+  .hero-pricing p.sub{max-width:680px;font-size:19px}
+  @media(max-width:680px){.hero-pricing{padding:72px 0 60px}.hero-pricing h1{font-size:34px}}
+  /* ---------- pricing model cards ---------- */
+  .models{background:var(--offwhite)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .pcard{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:30px 26px;display:flex;flex-direction:column;box-shadow:0 14px 40px rgba(35,31,32,.05)}
+  .pcard.featured{background:var(--black);color:#fff;border-color:var(--black);box-shadow:0 28px 64px rgba(35,31,32,.28);transform:translateY(-12px)}
+  .plabel{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .plabel .pl-ic{width:26px;height:26px;border-radius:8px;background:var(--yellow-4);border:1px solid var(--yellow-2);display:flex;align-items:center;justify-content:center}
+  .plabel .pl-ic svg{width:15px;height:15px;stroke:var(--black);stroke-width:1.8;fill:none}
+  .pcard.featured .plabel{color:#cfccc6}
+  .pcard.featured .pl-ic{background:#363230;border-color:#4a4542}
+  .pcard.featured .pl-ic svg{stroke:var(--yellow)}
+  .pbadge{position:absolute;top:18px;right:18px;background:var(--yellow);color:var(--black);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .pcard{position:relative}
+  .pcard h3{font-size:24px;margin-bottom:12px}
+  .pcard.featured h3{color:#fff}
+  .pfor{display:inline-block;background:var(--yellow-3);color:var(--black);font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:999px;margin-bottom:14px}
+  .pcard.featured .pfor{background:var(--yellow);color:var(--black)}
+  .ptag{font-size:15px;font-weight:600;color:#3d3935;margin-bottom:16px;line-height:1.4}
+  .pcard.featured .ptag{color:#f0ede6}
+  .pdesc{font-size:13.5px;color:#5e5a53;line-height:1.6;margin-bottom:22px}
+  .pcard.featured .pdesc{color:#bdb9b2}
+  .plist-h{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:18px 0 12px}
+  .pcard.featured .plist-h{color:#8d8980}
+  .plist{list-style:none;display:flex;flex-direction:column;gap:9px;margin:0}
+  .plist li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;font-weight:500;color:#34302e}
+  .pcard.featured .plist li{color:#e7e4dd}
+  .plist li .mk{flex:0 0 18px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:1px}
+  .plist.best li .mk{background:var(--yellow-3);color:var(--black)}
+  .plist.inc li .mk{background:var(--yellow);color:var(--black)}
+  .pcard.featured .plist.best li .mk{background:#4a4542;color:var(--yellow)}
+  .pprice{margin-top:22px;padding:18px;border-radius:14px;background:var(--offwhite);border:1px solid var(--line)}
+  .pcard.featured .pprice{background:#2c2826;border-color:#3a3633}
+  .pamt{font-size:24px;font-weight:800;letter-spacing:-.02em}
+  .pcard.featured .pamt{color:#fff}
+  .punit{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .pnote{font-size:12px;color:#6a665f;margin-top:8px;line-height:1.45}
+  .pcard.featured .pnote{color:#a8a49d}
+  .pcard .btn{margin-top:22px;width:100%}
+  @media(max-width:900px){.price-grid{grid-template-columns:1fr;gap:20px}.pcard.featured{transform:none}}
+  /* ---------- pricing comparison table ---------- */
+  .ptable-wrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 14px 40px rgba(35,31,32,.05)}
+  table.ptable{width:100%;border-collapse:collapse;background:var(--white);min-width:760px;font-size:14px}
+  table.ptable th,table.ptable td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  table.ptable thead th{background:var(--black);color:#fff;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  table.ptable thead th.dim{background:var(--black)}
+  table.ptable thead th.hot{background:#3a3633;color:var(--yellow)}
+  table.ptable td.dim{font-weight:700;color:var(--black);background:var(--offwhite);width:200px}
+  table.ptable td.hot{background:var(--yellow-5);font-weight:600}
+  table.ptable tbody tr:last-child td{border-bottom:none}
+  .yes{color:#1a8a4a;font-weight:800}.no{color:#c0392b;font-weight:800}
+  /* ---------- compact talent ---------- */
+  .tmini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+  .tmini{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.18s}
+  .tmini:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(35,31,32,.10)}
+  .tmini .tm-av{width:46px;height:46px;border-radius:12px;background:var(--yellow-3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;margin-bottom:12px}
+  .tmini .tm-name{font-weight:700;font-size:15px}
+  .tmini .tm-role{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .tm-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .tm-tags span{font-size:11px;font-weight:600;background:var(--offwhite);border:1px solid var(--line);padding:3px 9px;border-radius:999px;color:#46423f}
+  .tmini .tm-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px;font-size:12.5px}
+  .tmini .tm-rate{font-weight:800;font-size:14px}
+  .tmini .tm-av-now{color:#1a8a4a;font-weight:600}
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--white)}
+  .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{border:1px solid var(--line);border-radius:14px;background:var(--offwhite);overflow:hidden}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;font-size:16px;font-weight:700;color:var(--black);padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-q .chev{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .2s}
+  .faq-item.open .faq-q .chev{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:14.5px;color:#54504c;line-height:1.6}
+  .faq-a .inner{padding:0 22px 20px}
+  .faq-item.open .faq-a{max-height:340px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <svg class="logo" viewBox="0 0 2270 630" xmlns="http://www.w3.org/2000/svg" aria-label="Uplers">
+      <path d="M714.097 50.2249C673.234 9.39531 613.658 -6.27665 557.935 8.98289L353.62 62.8724C242.864 92.1542 -36.7112 147.418 14.4708 272.382C68.1293 403.256 239.974 549.253 368.892 599.981C560.55 675.316 662.639 541.692 705.153 402.844C706.116 399.957 707.079 396.933 707.904 394.046L708.18 392.808L708.731 390.609C711.482 381.123 713.822 371.638 715.885 362.014L755.51 205.845C770.645 150.305 754.96 91.0545 714.234 50.2249H714.097ZM629.206 172.026L578.711 370.125C574.996 383.323 562.89 393.221 548.994 392.808C535.097 392.259 523.402 381.811 520.788 368.063L504.003 284.617C502.902 278.98 500.288 273.757 495.886 269.495C491.62 265.096 486.253 262.346 480.75 261.384L397.236 244.75C391.182 243.65 385.678 240.625 381.551 236.501C376.46 231.415 372.883 224.404 372.607 216.568C372.057 202.683 381.688 190.173 395.172 186.736L593.02 135.871C603.202 133.259 613.934 136.146 621.364 143.569C626.867 149.068 629.894 156.767 629.894 164.465C629.894 166.802 629.618 169.414 629.068 171.751L629.206 172.026Z" fill="#231F20"/>
+      <path d="M1061.78 200.074V322.7C1061.78 358.031 1033.02 386.763 997.662 386.763C962.302 386.763 933.546 358.031 933.546 322.7V200.074H860.625V322.7C860.625 398.311 922.127 459.624 997.662 459.624C1073.2 459.624 1134.7 398.173 1134.7 322.7V200.074H1061.78ZM1420.74 274.31C1414.55 259.05 1405.19 245.165 1392.95 232.518C1368.18 207.36 1337.64 194.575 1302.14 194.575C1279.71 194.575 1259.35 200.349 1241.33 211.622V200.074H1170.19V564.791H1241.33V434.741C1260.45 446.839 1281.36 453.025 1304.07 453.025C1338.88 453.025 1368.87 440.102 1393.36 414.807C1417.71 389.65 1430.09 358.993 1430.09 323.663C1430.09 305.929 1426.93 289.432 1420.74 274.31ZM1295.95 385.251C1262.1 385.251 1234.58 357.893 1234.58 323.938C1234.58 289.982 1262.1 262.624 1295.95 262.624C1329.79 262.624 1357.31 290.119 1357.31 323.938C1357.31 357.756 1329.93 385.251 1295.95 385.251ZM2046.07 206.535C2030.79 197.462 2014.56 193.2 1995.16 193.2C1978.37 193.2 1966.27 196.087 1954.71 202.686C1950.17 205.436 1944.94 209.147 1940.13 213.409V200.074H1865.69V453.575H1940.13V332.048C1940.13 315.552 1940.12 293.006 1954.71 277.197C1964.06 267.299 1974.52 265.236 1987.18 265.236C1991.03 265.236 2001.35 265.236 2014.15 273.347L2021.03 277.746L2051.57 209.835L2046.07 206.535ZM2254.92 341.947C2250.11 333.423 2243.36 326 2234.97 319.813C2227.54 314.314 2218.19 309.64 2207.18 305.791C2199.06 302.904 2188.47 300.017 2175.95 296.993C2155.31 292.456 2141.14 288.744 2133.57 285.857C2125.04 282.696 2125.04 279.121 2125.04 277.746C2125.04 274.585 2126 270.598 2133.98 266.886C2141.69 263.449 2150.36 261.662 2160.4 261.662C2172.23 261.662 2182.83 263.587 2191.91 267.573C2200.85 271.423 2209.24 276.097 2216.81 281.183L2222.59 285.17L2260.7 229.218L2255.2 225.094C2245.84 218.358 2233.05 211.484 2217.36 204.886C2201.26 198.149 2182 194.713 2159.99 194.713C2142.79 194.713 2127.65 196.912 2114.58 201.174C2101.65 205.573 2090.37 211.759 2080.6 219.733C2070.97 227.706 2063.82 236.779 2059 246.678C2053.91 257.263 2051.43 267.986 2051.43 278.709C2051.43 290.807 2054.32 301.667 2060.1 311.015C2065.33 319.538 2072.76 327.099 2082.25 333.698C2090.78 339.61 2100.83 344.833 2112.11 349.095C2121.88 352.807 2133.02 355.969 2145.54 358.718C2149.39 359.681 2155.72 361.193 2164.12 362.842C2169.89 364.08 2174.57 365.455 2178.29 366.967C2181.59 368.204 2184.06 369.716 2185.58 371.366V371.641C2187.09 372.878 2187.5 374.528 2187.5 376.452C2187.5 380.302 2186.4 384.563 2178.97 387.725C2170.99 391.024 2162.19 392.812 2152.56 392.812C2144.44 392.812 2136.6 391.712 2129.44 389.512C2122.43 387.588 2116.1 384.976 2110.46 381.814C2104.4 378.514 2099.04 374.94 2094.63 371.503C2090.51 368.204 2086.1 364.355 2081.7 360.23L2076.06 355.007L2033.82 409.583L2037.67 413.845C2042.63 419.344 2049.23 424.98 2057.21 430.892C2064.92 436.391 2073.58 441.202 2083.22 445.464C2093.53 449.863 2103.99 453.3 2114.17 455.774C2126.14 458.524 2138.66 459.899 2151.46 459.899C2165.77 459.899 2179.66 458.112 2192.73 454.4C2206.08 450.688 2217.91 445.326 2227.82 438.59C2238.27 431.442 2246.8 422.231 2252.86 411.783C2259.19 400.785 2262.35 388.275 2262.35 374.665C2262.35 362.293 2259.74 351.295 2254.65 342.084L2254.92 341.947ZM1819.88 272.798C1813 256.438 1803.78 242.416 1792.5 231.143C1781.35 220.008 1767.73 210.934 1751.91 204.336C1736.77 198.012 1720.26 194.713 1702.65 194.713C1685.04 194.713 1667.15 198.149 1651.74 205.161C1635.78 212.172 1622.3 221.657 1611.57 233.343C1600.43 245.303 1591.62 259.325 1585.15 275.135C1578.82 290.669 1575.52 307.991 1575.52 326.275C1575.52 344.559 1578.96 362.705 1585.84 378.789C1593 395.149 1602.63 409.583 1614.73 421.406C1627.25 433.366 1641.56 442.989 1657.8 449.588C1674.03 456.324 1692.06 459.761 1711.32 459.761C1733.47 459.761 1753.28 455.912 1770.62 448.213C1787.13 440.79 1801.03 432.679 1811.48 424.018L1816.57 419.894L1778.19 362.43L1772.13 367.929C1763.19 376.04 1753.42 381.951 1743.1 385.251C1732.37 388.688 1722.05 390.337 1712.42 390.337C1703.34 390.337 1695.36 388.962 1688.62 386.35C1681.88 383.876 1675.69 380.302 1670.04 376.04C1665.09 372.328 1661.1 367.654 1657.66 362.293C1656.42 360.093 1655.32 358.031 1654.22 355.969H1829.51L1829.78 349.233C1830.06 342.909 1830.33 338.372 1830.33 335.623V326.275C1830.33 306.891 1826.89 288.882 1820.15 272.935L1819.88 272.798ZM1659.59 297.955C1660.28 295.755 1661.1 293.419 1662.2 290.944C1664.4 285.857 1667.71 281.183 1671.56 277.197C1676.24 272.935 1681.46 269.361 1687.1 266.886C1693.43 264.274 1701.14 262.899 1709.81 262.899C1718.47 262.899 1726.73 264.274 1733.2 266.886C1739.66 269.498 1745.17 272.935 1749.29 277.197C1753.56 281.458 1756.86 286.132 1758.92 291.081C1759.89 293.418 1760.58 295.618 1761.26 297.818H1659.45L1659.59 297.955ZM1465.45 60.2637V453.575H1539.89V60.2637H1465.45Z" fill="#231F20"/>
+    </svg>
+    <nav class="nav-links">
+      <div class="has-mega">
+        <a class="nav-top">For companies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="mega">
+          <div class="mega-col">
+            <div class="mega-h">Built For</div>
+            <p class="mega-sub">Find hiring solutions tailored to your company stage and growth journey.</p>
+            <a href="#"><b>Early-Stage Startups</b><span>Build your early team without losing founder time.</span></a>
+            <a href="#"><b>Scaling Startups</b><span>Build hiring systems that keep up with growth.</span></a>
+            <a href="#"><b>Product Companies &amp; GCCs</b><span>Scale execution with flexible talent solutions.</span></a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-h">Hiring Solutions</div>
+            <p class="mega-sub">Choose the hiring model built for your needs.</p>
+            <a href="#compare"><b>Curated Sourcing</b><span>AI-led sourcing at a fraction of traditional cost.</span></a>
+            <a href="#compare"><b>Full Service Hiring <em>Most Popular</em></b><span>High-touch recruitment for strategic roles.</span></a>
+            <a href="#compare"><b>Contract Talent</b><span>Flexible talent to reduce execution risk.</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="#">For Talents</a>
+      <a href="#" class="active">Pricing</a>
+      <a href="#">Resources</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#compare" class="btn btn-primary btn-sm">Hire Talent</a>
+    </div>
+  </div>
+</header>
+
+<!-- 2. PRICING MODELS -->
+<section class="models">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill"><span class="dot"></span>Hiring models</span>
+      <h2>Hiring models designed around your needs.</h2>
+      <p>Pricing that reflects the value we deliver — not a one-size-fits-all rate card. Each model is purpose-built for a different hiring need, stage, and complexity level.</p>
+    </div>
+    <div class="price-grid">
+
+      <!-- Curated Sourcing -->
+      <div class="pcard">
+        <span class="plabel"><span class="pl-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>AI-Led</span>
+        <h3>Curated Sourcing</h3>
+        <span class="pfor">For startups &amp; lean tech teams</span>
+        <div class="ptag">AI-led sourcing at a fraction of traditional recruitment costs.</div>
+        <p class="pdesc">Curated Sourcing is designed specifically for startups and lean tech teams that need fast, relevant talent discovery without traditional recruitment costs. Our AI-agent-led workflow identifies and matches aligned candidates faster, while your team stays in control of interviews and closure.</p>
+        <div class="plist-h">Best for</div>
+        <ul class="plist best">
+          <li><span class="mk">•</span>Early-stage startups</li>
+          <li><span class="mk">•</span>Lean internal teams</li>
+          <li><span class="mk">•</span>Budget-conscious hiring</li>
+          <li><span class="mk">•</span>Less complex roles</li>
+          <li><span class="mk">•</span>Faster sourcing needs</li>
+        </ul>
+        <div class="plist-h">What's included</div>
+        <ul class="plist inc">
+          <li><span class="mk">✓</span>AI-led sourcing &amp; matching</li>
+          <li><span class="mk">✓</span>Curated profile shortlist</li>
+          <li><span class="mk">✓</span>Skill &amp; mindset alignment</li>
+          <li><span class="mk">✓</span>High-intent profiles only</li>
+          <li><span class="mk">✓</span>Faster turnaround times</li>
+        </ul>
+        <div class="pprice">
+          <div class="pamt">₹25,000 – ₹50,000</div>
+          <div class="punit">Per role</div>
+          <div class="pnote">Flat fee per role · varies by complexity &amp; experience level</div>
+        </div>
+        <a href="#form" class="btn btn-primary">Explore Curated Sourcing</a>
+      </div>
+
+      <!-- Full Service Hiring -->
+      <div class="pcard featured">
+        <span class="pbadge">Most popular</span>
+        <span class="plabel"><span class="pl-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>Human-Led</span>
+        <h3>Full Service Hiring</h3>
+        <span class="pfor">For startups &amp; product companies</span>
+        <div class="ptag">High-touch recruitment for strategic and hard-to-close roles.</div>
+        <p class="pdesc">Built for startups and product companies hiring business-critical talent where right-fit hiring, founder alignment, and long-term impact matter deeply. Work with dedicated startup hiring specialists who consult, source, pitch, coordinate, and stay involved until the right talent joins.</p>
+        <div class="plist-h">Best for</div>
+        <ul class="plist best">
+          <li><span class="mk">•</span>Senior &amp; leadership</li>
+          <li><span class="mk">•</span>Complex technical roles</li>
+          <li><span class="mk">•</span>Strategic business hires</li>
+          <li><span class="mk">•</span>Growth-stage scaling</li>
+          <li><span class="mk">•</span>Consultative support</li>
+        </ul>
+        <div class="plist-h">What's included</div>
+        <ul class="plist inc">
+          <li><span class="mk">✓</span>Dedicated principal recruiter</li>
+          <li><span class="mk">✓</span>End-to-end hiring ownership</li>
+          <li><span class="mk">✓</span>Talent sourcing &amp; evaluation</li>
+          <li><span class="mk">✓</span>Candidate pitching &amp; coordination</li>
+          <li><span class="mk">✓</span>Offer management &amp; follow-ups</li>
+          <li><span class="mk">✓</span>Joining support &amp; replacement cover</li>
+        </ul>
+        <div class="pprice">
+          <div class="pamt">10% – 15%</div>
+          <div class="punit">Of annual CTC</div>
+          <div class="pnote">Success fee on annual compensation · varies by seniority &amp; complexity</div>
+        </div>
+        <a href="#form" class="btn btn-primary">Explore Full Service Hiring</a>
+      </div>
+
+      <!-- Contract Talent -->
+      <div class="pcard">
+        <span class="plabel"><span class="pl-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></span>Scale-Led</span>
+        <h3>Contract Talent</h3>
+        <span class="pfor">For product companies &amp; GCCs</span>
+        <div class="ptag">Flexible talent solutions designed to reduce execution risk.</div>
+        <p class="pdesc">Designed for product companies and GCCs looking to scale engineering, product, and GTM capabilities through flexible, execution-focused talent solutions — without the limitations of traditional staffing vendors.</p>
+        <div class="plist-h">Best for</div>
+        <ul class="plist best">
+          <li><span class="mk">•</span>Product companies &amp; GCCs</li>
+          <li><span class="mk">•</span>Fast-scaling teams</li>
+          <li><span class="mk">•</span>Project-based execution</li>
+          <li><span class="mk">•</span>Flexible workforce needs</li>
+          <li><span class="mk">•</span>Reduce execution risk</li>
+        </ul>
+        <div class="plist-h">What's included</div>
+        <ul class="plist inc">
+          <li><span class="mk">✓</span>Product-ready contract talent</li>
+          <li><span class="mk">✓</span>Flexible engagement models</li>
+          <li><span class="mk">✓</span>Faster onboarding</li>
+          <li><span class="mk">✓</span>Payroll &amp; compliance management</li>
+          <li><span class="mk">✓</span>Workforce continuity support</li>
+          <li><span class="mk">✓</span>Team scalability</li>
+        </ul>
+        <div class="pprice">
+          <div class="pamt">Starts from $2,500</div>
+          <div class="punit">Per month</div>
+          <div class="pnote">Monthly engagement · varies by role, skillset, experience &amp; engagement duration</div>
+        </div>
+        <a href="#form" class="btn btn-secondary">Explore Contract Talent</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. COMPARISON -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill"><span class="dot"></span>Compare</span>
+      <h2>Compare hiring models at a glance.</h2>
+      <p>Identify the right model for your stage, hiring complexity, and operational needs.</p>
+    </div>
+    <div class="ptable-wrap">
+      <table class="ptable">
+        <thead>
+          <tr>
+            <th class="dim">Dimension</th>
+            <th>Curated Sourcing</th>
+            <th class="hot">Full Service Hiring</th>
+            <th>Contract Talent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="dim">Best for</td><td>Budget-conscious startups &amp; lean teams</td><td class="hot">Senior, niche &amp; business-critical roles</td><td>Flexible scaling &amp; execution continuity</td></tr>
+          <tr><td class="dim">Pricing model</td><td>Flat fee per role</td><td class="hot">Success fee on annual CTC</td><td>Hourly billing</td></tr>
+          <tr><td class="dim">Uplers involvement</td><td>AI-led sourcing</td><td class="hot">Dedicated principal recruiter</td><td>Talent deployment + ongoing support</td></tr>
+          <tr><td class="dim">Hiring complexity</td><td>Low to medium</td><td class="hot">Medium to high</td><td>Medium to high</td></tr>
+          <tr><td class="dim">Ideal buyer</td><td>Indian startups &amp; lean teams</td><td class="hot">Startups &amp; product companies</td><td>Global companies, product cos, GCCs</td></tr>
+          <tr><td class="dim">Who manages interviews</td><td>Client managed</td><td class="hot">Coordinated by Uplers</td><td>Supported by Uplers</td></tr>
+          <tr><td class="dim">Closure support</td><td><span class="no">✕</span></td><td class="hot"><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td class="dim">Replacement support</td><td><span class="no">✕</span></td><td class="hot"><span class="yes">✓</span></td><td><span class="yes">✓</span> Per contract</td></tr>
+          <tr><td class="dim">Contract &amp; payroll support</td><td><span class="no">✕</span></td><td class="hot"><span class="no">✕</span></td><td><span class="yes">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FORM -->
+<section id="form" style="background:linear-gradient(180deg,var(--yellow-5),var(--offwhite))">
+  <div class="wrap">
+    <div class="form-card">
+      <h2>Not sure which model fits your needs?</h2>
+      <p>Tell us where you are and we'll map the right model and pricing to your role — no commitment.</p>
+      <form class="lead-form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Thanks — we will be in touch ✓';">
+        <div><label>Full name</label><input type="text" placeholder="Jane Founder" required></div>
+        <div><label>Work email</label><input type="email" placeholder="jane@startup.com" required></div>
+        <div><label>Company</label><input type="text" placeholder="Startup Inc." required></div>
+        <div>
+          <label>Model you're considering</label>
+          <select>
+            <option>Not sure yet — help me choose</option>
+            <option>Curated Sourcing</option>
+            <option>Full Service Hiring</option>
+            <option>Contract Talent</option>
+          </select>
+        </div>
+        <div class="full"><label>What are you hiring for? (optional)</label><input type="text" placeholder="2 backend engineers for a 0→1 product…"></div>
+        <div class="full"><button type="submit" class="btn btn-primary">Send me a pricing breakdown</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SUCCESS STORIES -->
+<section class="stories">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill"><span class="dot"></span>Success stories</span>
+      <h2>Built with startups across every growth stage.</h2>
+      <p>From early pre-seed to product companies scaling fast — teams trust Uplers to move quickly without lowering the bar.</p>
+    </div>
+    <div class="story-grid">
+      <div class="story">
+        <div class="tag">Pre-seed · Fintech</div>
+        <h4>Curated Sourcing for fast-moving founders</h4>
+        <p>Needed a founding engineer who could own the stack. Uplers delivered a hire-ready shortlist before the week was out.</p>
+        <div class="stats">
+          <div class="stat"><b>48h</b><span>to first shortlist</span></div>
+          <div class="stat"><b>1</b><span>hire made</span></div>
+          <div class="stat"><b>100%</b><span>offer accept</span></div>
+        </div>
+      </div>
+      <div class="story">
+        <div class="tag">Series A · SaaS</div>
+        <h4>Full Service Hiring with real startup fit</h4>
+        <p>Replaced months of agency back-and-forth with vetted profiles that matched both the skill bar and the culture.</p>
+        <div class="stats">
+          <div class="stat"><b>3.4d</b><span>avg time to hire</span></div>
+          <div class="stat"><b>24</b><span>engineers placed</span></div>
+          <div class="stat"><b>92%</b><span>12-mo retention</span></div>
+        </div>
+      </div>
+      <div class="story">
+        <div class="tag">Seed · AI</div>
+        <h4>Contract Talent, zero friction</h4>
+        <p>Spun up a contract pod to ship a deadline-critical release, then converted the best to full-time.</p>
+        <div class="stats">
+          <div class="stat"><b>2w</b><span>to staffed pod</span></div>
+          <div class="stat"><b>18</b><span>contractors</span></div>
+          <div class="stat"><b>$55/h</b><span>avg blended rate</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TALENT PROFILES -->
+<section style="background:var(--white)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill"><span class="dot"></span>Talent profiles</span>
+      <h2>A glimpse of the talent behind every model.</h2>
+      <p>Pre-vetted, screened, and ready to interview — the same top 1% across every pricing model.</p>
+    </div>
+    <div class="tmini-grid">
+      <div class="tmini">
+        <div class="tm-av">AK</div>
+        <div class="tm-name">Arjun Kumar</div>
+        <div class="tm-role">Senior Backend Engineer</div>
+        <div class="tm-tags"><span>Node.js</span><span>AWS</span><span>System design</span></div>
+        <div class="tm-foot"><span class="tm-rate">$48/hr</span><span class="tm-av-now">Available now</span></div>
+      </div>
+      <div class="tmini">
+        <div class="tm-av">PR</div>
+        <div class="tm-name">Priya Rao</div>
+        <div class="tm-role">Full-Stack Engineer</div>
+        <div class="tm-tags"><span>React</span><span>TypeScript</span><span>Postgres</span></div>
+        <div class="tm-foot"><span class="tm-rate">$44/hr</span><span class="tm-av-now">In 1 wk</span></div>
+      </div>
+      <div class="tmini">
+        <div class="tm-av">SC</div>
+        <div class="tm-name">Siddharth C.</div>
+        <div class="tm-role">ML / AI Engineer</div>
+        <div class="tm-tags"><span>Python</span><span>PyTorch</span><span>LLM / RAG</span></div>
+        <div class="tm-foot"><span class="tm-rate">$58/hr</span><span class="tm-av-now">Available now</span></div>
+      </div>
+      <div class="tmini">
+        <div class="tm-av">NS</div>
+        <div class="tm-name">Neha Sharma</div>
+        <div class="tm-role">Frontend Engineer</div>
+        <div class="tm-tags"><span>React</span><span>Next.js</span><span>UI systems</span></div>
+        <div class="tm-foot"><span class="tm-rate">$42/hr</span><span class="tm-av-now">Available now</span></div>
+      </div>
+      <div class="tmini">
+        <div class="tm-av">RM</div>
+        <div class="tm-name">Rohan Mehta</div>
+        <div class="tm-role">DevOps Engineer</div>
+        <div class="tm-tags"><span>Kubernetes</span><span>Terraform</span><span>CI/CD</span></div>
+        <div class="tm-foot"><span class="tm-rate">$50/hr</span><span class="tm-av-now">In 1 wk</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill"><span class="dot"></span>FAQ</span>
+      <h2>Pricing questions, answered.</h2>
+      <p>The details founders ask before choosing a model.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">How is Uplers' pricing different from a traditional recruitment agency?<span class="chev">+</span></button><div class="faq-a"><div class="inner">Traditional agencies charge a single high success fee regardless of role or stage. Uplers prices each model around the value it delivers — a flat per-role fee for AI-led Curated Sourcing, a success fee for high-touch Full Service Hiring, and a monthly rate for Contract Talent — so you only pay for the level of involvement you actually need.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Which model is right for my stage?<span class="chev">+</span></button><div class="faq-a"><div class="inner">Early-stage and lean teams hiring less complex roles usually start with Curated Sourcing. Startups and product companies hiring senior, niche, or business-critical roles lean on Full Service Hiring. Product companies and GCCs scaling execution capacity choose Contract Talent. Not sure? The comparison table above — or a quick chat — will point you to the right fit.</div></div></div>
+      <div class="faq-item"><button class="faq-q">What does the Curated Sourcing flat fee cover?<span class="chev">+</span></button><div class="faq-a"><div class="inner">₹25,000–₹50,000 per role covers AI-led sourcing and matching, a curated profile shortlist, skill and mindset alignment, and high-intent profiles only. Your team stays in control of interviews and closure. The exact fee varies by role complexity and experience level.</div></div></div>
+      <div class="faq-item"><button class="faq-q">How does the Full Service Hiring success fee work?<span class="chev">+</span></button><div class="faq-a"><div class="inner">It's 10%–15% of the hire's annual CTC, charged only when the right candidate joins. The rate varies by seniority and complexity. You get a dedicated principal recruiter who owns sourcing, evaluation, pitching, coordination, offer management, and joining support end to end.</div></div></div>
+      <div class="faq-item"><button class="faq-q">How is Contract Talent billed?<span class="chev">+</span></button><div class="faq-a"><div class="inner">Contract Talent starts from $2,500 per month per resource, varying by role, skillset, experience, and engagement duration. It includes product-ready talent, flexible engagement models, faster onboarding, and full payroll and compliance management.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Do you offer replacement guarantees?<span class="chev">+</span></button><div class="faq-a"><div class="inner">Yes. Full Service Hiring includes replacement cover as part of the engagement, and Contract Talent includes replacement support per contract. Curated Sourcing is a sourcing-only model, so closure and replacement stay on your side.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Are there any upfront or hidden costs?<span class="chev">+</span></button><div class="faq-a"><div class="inner">No hidden costs. Curated Sourcing is a transparent flat fee per role, Full Service Hiring is a success fee paid only on a successful hire, and Contract Talent is a clear monthly rate. You'll always see the full breakdown before you commit.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <svg class="logo" viewBox="0 0 2270 630" xmlns="http://www.w3.org/2000/svg" aria-label="Uplers">
+        <path d="M714.097 50.2249C673.234 9.39531 613.658 -6.27665 557.935 8.98289L353.62 62.8724C242.864 92.1542 -36.7112 147.418 14.4708 272.382C68.1293 403.256 239.974 549.253 368.892 599.981C560.55 675.316 662.639 541.692 705.153 402.844C706.116 399.957 707.079 396.933 707.904 394.046L708.18 392.808L708.731 390.609C711.482 381.123 713.822 371.638 715.885 362.014L755.51 205.845C770.645 150.305 754.96 91.0545 714.234 50.2249H714.097ZM629.206 172.026L578.711 370.125C574.996 383.323 562.89 393.221 548.994 392.808C535.097 392.259 523.402 381.811 520.788 368.063L504.003 284.617C502.902 278.98 500.288 273.757 495.886 269.495C491.62 265.096 486.253 262.346 480.75 261.384L397.236 244.75C391.182 243.65 385.678 240.625 381.551 236.501C376.46 231.415 372.883 224.404 372.607 216.568C372.057 202.683 381.688 190.173 395.172 186.736L593.02 135.871C603.202 133.259 613.934 136.146 621.364 143.569C626.867 149.068 629.894 156.767 629.894 164.465C629.894 166.802 629.618 169.414 629.068 171.751L629.206 172.026Z" fill="#FFFFFF"/>
+        <path d="M1061.78 200.074V322.7C1061.78 358.031 1033.02 386.763 997.662 386.763C962.302 386.763 933.546 358.031 933.546 322.7V200.074H860.625V322.7C860.625 398.311 922.127 459.624 997.662 459.624C1073.2 459.624 1134.7 398.173 1134.7 322.7V200.074H1061.78ZM1420.74 274.31C1414.55 259.05 1405.19 245.165 1392.95 232.518C1368.18 207.36 1337.64 194.575 1302.14 194.575C1279.71 194.575 1259.35 200.349 1241.33 211.622V200.074H1170.19V564.791H1241.33V434.741C1260.45 446.839 1281.36 453.025 1304.07 453.025C1338.88 453.025 1368.87 440.102 1393.36 414.807C1417.71 389.65 1430.09 358.993 1430.09 323.663C1430.09 305.929 1426.93 289.432 1420.74 274.31ZM1295.95 385.251C1262.1 385.251 1234.58 357.893 1234.58 323.938C1234.58 289.982 1262.1 262.624 1295.95 262.624C1329.79 262.624 1357.31 290.119 1357.31 323.938C1357.31 357.756 1329.93 385.251 1295.95 385.251ZM2046.07 206.535C2030.79 197.462 2014.56 193.2 1995.16 193.2C1978.37 193.2 1966.27 196.087 1954.71 202.686C1950.17 205.436 1944.94 209.147 1940.13 213.409V200.074H1865.69V453.575H1940.13V332.048C1940.13 315.552 1940.12 293.006 1954.71 277.197C1964.06 267.299 1974.52 265.236 1987.18 265.236C1991.03 265.236 2001.35 265.236 2014.15 273.347L2021.03 277.746L2051.57 209.835L2046.07 206.535ZM2254.92 341.947C2250.11 333.423 2243.36 326 2234.97 319.813C2227.54 314.314 2218.19 309.64 2207.18 305.791C2199.06 302.904 2188.47 300.017 2175.95 296.993C2155.31 292.456 2141.14 288.744 2133.57 285.857C2125.04 282.696 2125.04 279.121 2125.04 277.746C2125.04 274.585 2126 270.598 2133.98 266.886C2141.69 263.449 2150.36 261.662 2160.4 261.662C2172.23 261.662 2182.83 263.587 2191.91 267.573C2200.85 271.423 2209.24 276.097 2216.81 281.183L2222.59 285.17L2260.7 229.218L2255.2 225.094C2245.84 218.358 2233.05 211.484 2217.36 204.886C2201.26 198.149 2182 194.713 2159.99 194.713C2142.79 194.713 2127.65 196.912 2114.58 201.174C2101.65 205.573 2090.37 211.759 2080.6 219.733C2070.97 227.706 2063.82 236.779 2059 246.678C2053.91 257.263 2051.43 267.986 2051.43 278.709C2051.43 290.807 2054.32 301.667 2060.1 311.015C2065.33 319.538 2072.76 327.099 2082.25 333.698C2090.78 339.61 2100.83 344.833 2112.11 349.095C2121.88 352.807 2133.02 355.969 2145.54 358.718C2149.39 359.681 2155.72 361.193 2164.12 362.842C2169.89 364.08 2174.57 365.455 2178.29 366.967C2181.59 368.204 2184.06 369.716 2185.58 371.366V371.641C2187.09 372.878 2187.5 374.528 2187.5 376.452C2187.5 380.302 2186.4 384.563 2178.97 387.725C2170.99 391.024 2162.19 392.812 2152.56 392.812C2144.44 392.812 2136.6 391.712 2129.44 389.512C2122.43 387.588 2116.1 384.976 2110.46 381.814C2104.4 378.514 2099.04 374.94 2094.63 371.503C2090.51 368.204 2086.1 364.355 2081.7 360.23L2076.06 355.007L2033.82 409.583L2037.67 413.845C2042.63 419.344 2049.23 424.98 2057.21 430.892C2064.92 436.391 2073.58 441.202 2083.22 445.464C2093.53 449.863 2103.99 453.3 2114.17 455.774C2126.14 458.524 2138.66 459.899 2151.46 459.899C2165.77 459.899 2179.66 458.112 2192.73 454.4C2206.08 450.688 2217.91 445.326 2227.82 438.59C2238.27 431.442 2246.8 422.231 2252.86 411.783C2259.19 400.785 2262.35 388.275 2262.35 374.665C2262.35 362.293 2259.74 351.295 2254.65 342.084L2254.92 341.947ZM1819.88 272.798C1813 256.438 1803.78 242.416 1792.5 231.143C1781.35 220.008 1767.73 210.934 1751.91 204.336C1736.77 198.012 1720.26 194.713 1702.65 194.713C1685.04 194.713 1667.15 198.149 1651.74 205.161C1635.78 212.172 1622.3 221.657 1611.57 233.343C1600.43 245.303 1591.62 259.325 1585.15 275.135C1578.82 290.669 1575.52 307.991 1575.52 326.275C1575.52 344.559 1578.96 362.705 1585.84 378.789C1593 395.149 1602.63 409.583 1614.73 421.406C1627.25 433.366 1641.56 442.989 1657.8 449.588C1674.03 456.324 1692.06 459.761 1711.32 459.761C1733.47 459.761 1753.28 455.912 1770.62 448.213C1787.13 440.79 1801.03 432.679 1811.48 424.018L1816.57 419.894L1778.19 362.43L1772.13 367.929C1763.19 376.04 1753.42 381.951 1743.1 385.251C1732.37 388.688 1722.05 390.337 1712.42 390.337C1703.34 390.337 1695.36 388.962 1688.62 386.35C1681.88 383.876 1675.69 380.302 1670.04 376.04C1665.09 372.328 1661.1 367.654 1657.66 362.293C1656.42 360.093 1655.32 358.031 1654.22 355.969H1829.51L1829.78 349.233C1830.06 342.909 1830.33 338.372 1830.33 335.623V326.275C1830.33 306.891 1826.89 288.882 1820.15 272.935L1819.88 272.798ZM1659.59 297.955C1660.28 295.755 1661.1 293.419 1662.2 290.944C1664.4 285.857 1667.71 281.183 1671.56 277.197C1676.24 272.935 1681.46 269.361 1687.1 266.886C1693.43 264.274 1701.14 262.899 1709.81 262.899C1718.47 262.899 1726.73 264.274 1733.2 266.886C1739.66 269.498 1745.17 272.935 1749.29 277.197C1753.56 281.458 1756.86 286.132 1758.92 291.081C1759.89 293.418 1760.58 295.618 1761.26 297.818H1659.45L1659.59 297.955ZM1465.45 60.2637V453.575H1539.89V60.2637H1465.45Z" fill="#FFFFFF"/>
+      </svg>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>Product</h5><a href="#jai">Meet Jay</a><a href="#report">How it works</a><a href="#talent">Talent</a></div>
+        <div class="foot-col"><h5>Company</h5><a href="#stories">Success stories</a><a href="#compare">Why Uplers</a><a href="#compare">Book a call</a></div>
+        <div class="foot-col"><h5>Hiring</h5><a href="#compare">Curated sourcing</a><a href="#compare">Full-service hiring</a><a href="#compare">Contract talent</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Uplers. Human-led &amp; AI-powered hiring.</span>
+      <span>Top 1% talent from India · 3–5 profiles in ~48 hours</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.closest('.faq-item');
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+      if(!open) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
